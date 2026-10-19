@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIYAD BOT HOSTING</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: #f1f5f9;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px;
+      background: #111a2e;
+      border-bottom: 1px solid #26324a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #60a5fa;
+    }
+
+    .badge {
+      background: #163c32;
+      color: #86efac;
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 22px 16px;
+    }
+
+    .welcome {
+      margin-bottom: 24px;
+    }
+
+    .welcome h1 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: #111a2e;
+      border: 1px solid #26324a;
+      padding: 18px;
+      border-radius: 14px;
+    }
+
+    .card p {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .number {
+      font-size: 27px;
+      font-weight: bold;
+    }
+
+    .section-title {
+      margin: 25px 0 15px;
+      font-size: 19px;
+    }
+
+    .bot-card {
+      background: #111a2e;
+      border: 1px solid #26324a;
+      padding: 18px;
+      border-radius: 14px;
+      margin-bottom: 15px;
+    }
+
+    .bot-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .bot-name {
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .status {
+      font-size: 12px;
+      color: #fbbf24;
+    }
+
+    .bot-card p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 9px;
+      padding: 11px 16px;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .start {
+      background: #16a34a;
+    }
+
+    .stop {
+      background: #dc2626;
+    }
+
+    .primary {
+      background: #2563eb;
+    }
+
+    .secondary {
+      background: #334155;
+    }
+
+    button:active {
+      opacity: 0.8;
+    }
+
+    .panel {
+      background: #111a2e;
+      border: 1px solid #26324a;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin: 12px 0;
+      border-radius: 9px;
+      border: 1px solid #334155;
+      background: #0b1020;
+      color: white;
+      font-size: 14px;
+    }
+
+    .console {
+      background: #050914;
+      border-radius: 10px;
+      padding: 15px;
+      min-height: 100px;
+      color: #86efac;
+      font-family: monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+
+    .notice {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #fbbf24;
+      margin-top: 12px;
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: #64748b;
+      font-size: 12px;
+    }
+
+    @media (min-width: 650px) {
+      .stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .welcome h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">RIYAD BOT HOSTING</div>
+    <div class="badge">● Dashboard Demo</div>
+  </header>
+
+  <main>
+
+    <section class="welcome">
+      <h1>Welcome, Riyad! 👋</h1>
+      <p>
+        Manage your bots from one simple dashboard.
+        Your hosting journey starts here.
+      </p>
+    </section>
+
+    <section class="stats">
+      <div class="card">
+        <p>Total Bots</p>
+        <div class="number" id="total">1</div>
+      </div>
+
+      <div class="card">
+        <p>Running</p>
+        <div class="number" id="running">0</div>
+      </div>
+
+      <div class="card">
+        <p>Stopped</p>
+        <div class="number" id="stopped">1</div>
+      </div>
+
+      <div class="card">
+        <p>Plan</p>
+        <div class="number" style="font-size:22px">Free</div>
+      </div>
+    </section>
+
+    <h2 class="section-title">My Bots 🤖</h2>
+
+    <section class="bot-card">
+      <div class="bot-top">
+        <div class="bot-name" id="botName">My First Bot</div>
+        <div class="status" id="status">● Stopped (Demo)</div>
+      </div>
+
+      <p>
+        Type: Python Bot<br>
+        Runtime: Not connected<br>
+        Status: Frontend demonstration
+      </p>
+
+      <div class="actions">
+        <button class="start" onclick="startBot()">▶ Start</button>
+        <button class="stop" onclick="stopBot()">■ Stop</button>
+      </div>
+    </section>
+
+    <h2 class="section-title">Add New Bot ➕</h2>
+
+    <section class="panel">
+      <label for="newBot">Bot Name</label>
+      <input
+        id="newBot"
+        type="text"
+        placeholder="Enter your bot name"
+        maxlength="40"
+      >
+
+      <button class="primary" onclick="addBot()">
+        + Add Bot
+      </button>
+
+      <p class="notice">
+        Demo only: adding a bot here does not upload or run a real program.
+      </p>
+    </section>
+
+    <h2 class="section-title">Console Logs 🖥️</h2>
+
+    <section class="panel">
+      <div class="console" id="console">
+        [INFO] RIYAD BOT HOSTING dashboard loaded.<br>
+        [INFO] Frontend demo is ready.<br>
+        [INFO] No cloud runtime connected.
+      </div>
+
+      <div class="actions" style="margin-top:14px">
+        <button class="secondary" onclick="clearLogs()">
+          Clear Logs
+        </button>
+      </div>
+    </section>
+
+    <h2 class="section-title">Hosting Information ☁️</h2>
+
+    <section class="panel">
+      <p style="line-height:1.8;color:#cbd5e1">
+        <strong>Project:</strong> RIYAD BOT HOSTING<br>
+        <strong>Dashboard:</strong> Frontend<br>
+        <strong>Runtime:</strong> Not configured<br>
+        <strong>Hosting:</strong> Not connected
+      </p>
+
+      <p class="notice">
+        Start and Stop are demo controls only. Real bot execution requires
+        a secure backend and a compatible hosting service.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 RIYAD BOT HOSTING · Built for Riyad
+  </footer>
+
+  <script>
+    let bots = [
+      { name: "My First Bot", running: false }
+    ];
+
+    function addLog(message) {
+      const box = document.getElementById("console");
+      const time = new Date().toLocaleTimeString();
+      box.innerHTML += "<br>[" + time + "] " + message;
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function updateDashboard() {
+      document.getElementById("total").textContent = bots.length;
+
+      const running = bots.filter(bot => bot.running).length;
+
+      document.getElementById("running").textContent = running;
+      document.getElementById("stopped").textContent =
+        bots.length - running;
+
+      const firstBot = bots[0];
+
+      if (firstBot) {
+        document.getElementById("botName").textContent =
+          firstBot.name;
+
+        document.getElementById("status").textContent =
+          firstBot.running
+            ? "● Running (Demo)"
+            : "● Stopped (Demo)";
+      }
+    }
+
+    function startBot() {
+      if (bots[0].running) {
+        addLog("Demo bot is already marked as running.");
+        return;
+      }
+
+      bots[0].running = true;
+      updateDashboard();
+
+      addLog("Demo status changed to Running.");
+      addLog("No real bot process was started.");
+    }
+
+    function stopBot() {
+      if (!bots[0].running) {
+        addLog("Demo bot is already marked as stopped.");
+        return;
+      }
+
+      bots[0].running = false;
+      updateDashboard();
+
+      addLog("Demo status changed to Stopped.");
+      addLog("No cloud process was stopped.");
+    }
+
+    function addBot() {
+      const input = document.getElementById("newBot");
+      const name = input.value.trim();
+
+      if (!name) {
+        alert("Please enter a bot name.");
+        return;
+      }
+
+      if (bots.some(bot =>
+        bot.name.toLowerCase() === name.toLowerCase()
+      )) {
+        alert("A bot with this name already exists.");
+        return;
+      }
+
+      bots.push({ name: name, running: false });
+
+      addLog("Added demo bot: " + name);
+      input.value = "";
+
+      updateDashboard();
+      alert("Demo bot added!");
+    }
+
+    function clearLogs() {
+      document.getElementById("console").textContent =
+        "[INFO] Console cleared.";
+    }
+
+    updateDashboard();
+  </script>
+
+</body>
+        </html>
